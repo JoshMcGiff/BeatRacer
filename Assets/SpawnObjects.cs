@@ -10,21 +10,22 @@ public class SpawnObjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*Vector3 test1 = new Vector3(-2.5f, 0.0f, 30.0f);
-        Vector3 test2 = new Vector3(0f, 0.0f, 45.0f);
-        Vector3 test3 = new Vector3(2.5f, 0.0f, 50.0f);
-        
-            Instantiate(prefab, test1, Quaternion.identity);
-        Instantiate(prefab, test2, Quaternion.identity);
-        Instantiate(prefab, test3, Quaternion.identity);*/
-        InvokeRepeating("spawnPickup", 0.0f, 1f);
+        AudioProcessor processor = FindObjectOfType<AudioProcessor>();
+        processor.onBeat.AddListener(onOnbeatDetected); 
+        //InvokeRepeating("spawnPickup", 0.0f, 1f);
 
     }
+    void onOnbeatDetected()
+    {
+        spawnPickup();
+        Debug.Log("Beat!!!");
+    }
+
     void spawnPickup()
     {
-        Vector3 test1 = new Vector3(-2.5f, 0.0f, 30.0f);
-        Vector3 test2 = new Vector3(0f, 0.0f, 45.0f);
-        Vector3 test3 = new Vector3(2.5f, 0.0f, 50.0f);
+        Vector3 test1 = new Vector3(-2.5f, 0.0f, 0.0f);
+        Vector3 test2 = new Vector3(0f, 0.0f, 0.0f);
+        Vector3 test3 = new Vector3(2.5f, 0.0f, 0.0f);
         var rand = new System.Random();
         int temp = rand.Next(3);
         if (temp == 0)
