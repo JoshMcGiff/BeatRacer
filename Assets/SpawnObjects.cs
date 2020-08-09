@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class SpawnObjects : MonoBehaviour
 {
+
     public GameObject prefab;
     public float speed = 2.0f;
+
     // Start is called before the first frame update
     void Start()
     {
