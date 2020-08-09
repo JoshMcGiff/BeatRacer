@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AudioDelay.cs" />
     <Compile Include="Assets\AudioProcessor.cs" />
+    <Compile Include="Assets\AudioSettings.cs" />
     <Compile Include="Assets\GetBeats.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\MovingCollectible.cs" />

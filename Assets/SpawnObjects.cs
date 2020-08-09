@@ -8,10 +8,17 @@ public class SpawnObjects : MonoBehaviour
 
     public GameObject prefab;
     public float speed = 2.0f;
+    int beats;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        
+        //301
+        int amountOfBeats = PlayerPrefs.GetInt("Beats");
+        Debug.Log(amountOfBeats);
+        beats = amountOfBeats;
         AudioProcessor processor = FindObjectOfType<AudioProcessor>();
         processor.onBeat.AddListener(onOnbeatDetected); 
         //InvokeRepeating("spawnPickup", 0.0f, 1f);
@@ -19,15 +26,18 @@ public class SpawnObjects : MonoBehaviour
     }
     void onOnbeatDetected()
     {
+        //beats++;
+        PlayerPrefs.SetInt("Beats", beats);
         spawnPickup();
         Debug.Log("Beat!!!");
+        
     }
 
     void spawnPickup()
     {
-        Vector3 test1 = new Vector3(-2.5f, 0.0f, 0.0f);
-        Vector3 test2 = new Vector3(0f, 0.0f, 0.0f);
-        Vector3 test3 = new Vector3(2.5f, 0.0f, 0.0f);
+        Vector3 test1 = new Vector3(-2.5f, 0.0f, 10.0f);
+        Vector3 test2 = new Vector3(0f, 0.0f, 10.0f);
+        Vector3 test3 = new Vector3(2.5f, 0.0f, 10.0f);
         var rand = new System.Random();
         int temp = rand.Next(3);
         if (temp == 0)

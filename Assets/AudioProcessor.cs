@@ -21,6 +21,7 @@ using System.Collections.Generic;
 [RequireComponent (typeof(AudioSource))]
 public class AudioProcessor : MonoBehaviour
 {
+	
 	public AudioSource audioSource;
 
 	private long lastT, nowT, diff, entries, sum;
@@ -95,9 +96,11 @@ public class AudioProcessor : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		
 		initArrays ();
 
 		audioSource = GetComponent<AudioSource> ();
+		audioSource.PlayDelayed(5.0f);
 		samplingRate = audioSource.clip.frequency;
 
 		framePeriod = (float)bufferSize / (float)samplingRate;
