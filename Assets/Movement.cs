@@ -35,7 +35,6 @@ public class Movement : MonoBehaviour
            
             score++;
             test.text = "Score: " + score.ToString();
-            Debug.Log("Hi bitch!");
             Destroy(collider.gameObject);
         }
     }

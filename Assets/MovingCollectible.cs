@@ -5,20 +5,34 @@ using UnityEngine;
 public class MovingCollectible : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float speed = 4.0f;
+    AudioSettings audioScript;
+    bool startFinished = false;
+
     void Start()
     {
-        
+
+        GameObject thePlayer = GameObject.Find("Main Camera");
+        audioScript = thePlayer.GetComponent<AudioSettings>();
+
+
     }
 
-    public int speed = 2;
+    
     // Update is called once per frame
+    
     void Update()
     {
-        if(transform.position.z < -2.5)
+        if (audioScript.speedMultipier > 0.2f)
+        {
+           speed = audioScript.speedMultipier * 8;
+        }
+        if (transform.position.z < -2.5)
         {
             Destroy(gameObject);
         }
-        transform.Translate(0, 0, -5 * speed * Time.deltaTime);
+        //Debug.Log (-10 * speed * Time.deltaTime);
+        transform.Translate(0, 0, -10 * speed * Time.deltaTime);
 
     }
 

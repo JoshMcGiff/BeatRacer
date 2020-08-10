@@ -10,12 +10,13 @@ public class AudioDelay : MonoBehaviour
     void Start()
     {
         audioTest = GetComponent<AudioSource>();
-        audioTest.PlayDelayed(5);
+        float tmp = 80 / (-10 * 4.0f * Time.deltaTime);
+        Debug.Log(tmp);
+        audioTest.PlayDelayed(tmp); //4
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
