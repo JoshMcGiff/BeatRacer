@@ -8,6 +8,7 @@ public class SpawnObjects : MonoBehaviour
 {
 
     public GameObject prefab;
+    public GameObject obstacle;
     public float speed = 2.0f;
     int beats = 0;
     bool left = false;
@@ -18,6 +19,8 @@ public class SpawnObjects : MonoBehaviour
     Vector3 test1 = new Vector3(-2.5f, 0.0f, 80.0f);
     Vector3 test2 = new Vector3(0f, 0.0f, 80.0f);
     Vector3 test3 = new Vector3(2.5f, 0.0f, 80.0f);
+
+    int i = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,18 +32,28 @@ public class SpawnObjects : MonoBehaviour
         //Debug.Log(amountOfBeats);
         //beats = amountOfBeats;
         AudioProcessor processor = FindObjectOfType<AudioProcessor>();
-        processor.onBeat.AddListener(onOnbeatDetected); 
-        //InvokeRepeating("spawnPickup", 0.0f, 1f);
+        processor.onBeat.AddListener(onOnbeatDetected);
+        InvokeRepeating("spawnObstacle", 0.0f, 10f);
+
+    }
+    void increment()
+    {
+        i++;
     }
     void onOnbeatDetected()
     {
-      
+        
             beats++;
-            //PlayerPrefs.SetInt("Beats", beats);
-            spawnPickup();
-            txt.text = beats.ToString();
+        //PlayerPrefs.SetInt("Beats", beats);
+        spawnPickup();
+        //InvokeRepeating("spawnPickup", 0.0f, 1f);
+        txt.text = beats.ToString();
             Debug.Log("Beat!!!");
         
+    }
+    void spawnObstacle()
+    {
+        Instantiate(obstacle, test1, Quaternion.identity);
     }
     void spawnLeft()
     {

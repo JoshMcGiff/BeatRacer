@@ -35,10 +35,10 @@ public class AudioSettings : MonoBehaviour
         audioTest.volume = 0.1f;
 
         //Invoke("updateVolume", 0.011f);
-        float tmp = ( 80.0f / (10.0f * 4.0f ));
-        Debug.Log(Convert.ToInt32(tmp));
+        //float tmp = ( 160.0f / (10.0f * 8.0f ));
+        //Debug.Log(Convert.ToInt32(tmp));
         //audioTest2.PlayDelayed(2);
-        audioTest2.PlayDelayed(Convert.ToInt32(tmp));
+        audioTest2.PlayDelayed((float) 4);
     }
     void updateVolume()
     {
