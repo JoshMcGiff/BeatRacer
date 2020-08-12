@@ -26,7 +26,7 @@ public class MovingCollectible : MonoBehaviour
     {
         if (audioScript.speedMultipier > 0.2f)
         {
-           speed = audioScript.speedMultipier * 12;
+           speed = audioScript.speedMultipier * 20;
         }
         if (transform.position.z < -2.5)
         {

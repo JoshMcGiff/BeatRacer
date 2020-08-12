@@ -50,7 +50,7 @@ public class SpawnObjects : MonoBehaviour
     {
         timerEnded = false;
         Debug.Log("Before");
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.125f);
         Debug.Log("After");
 
         timerEnded = true;

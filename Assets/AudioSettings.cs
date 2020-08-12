@@ -10,7 +10,7 @@ public class AudioSettings : MonoBehaviour
     public AudioClip secondAudioClip;
 
     AudioSource audioTest;
-    AudioSource audioTest2;
+    public AudioSource audioTest2;
 
     public float updateStep = 0.1f;
     public int sampleDataLength = 1024;
@@ -38,7 +38,7 @@ public class AudioSettings : MonoBehaviour
         //float tmp = ( 160.0f / (10.0f * 8.0f ));
         //Debug.Log(Convert.ToInt32(tmp));
         //audioTest2.PlayDelayed(2);
-        audioTest2.PlayDelayed((float) 0);
+        //audioTest2.PlayDelayed((float) 0);
     }
     void updateVolume()
     {

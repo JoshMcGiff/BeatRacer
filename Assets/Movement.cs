@@ -8,9 +8,20 @@ public class Movement : MonoBehaviour
     private int score = 0;
     public static Text test;
 
+    public AudioClip firstAudioClip;
+    public AudioClip secondAudioClip;
+
+    AudioSource audioTest;
+    AudioSource audioTest2;
+    AudioSettings audSet;
+    bool hasMusicStarted = false;
+    
     // Start is called before the first frame update
     void Start()
     {
+        GameObject script = GameObject.Find("Main Camera");
+        audSet = script.GetComponent<AudioSettings>();
+        
         Text txt = GameObject.Find("Canvas/Text").GetComponent<Text>();
         test = txt;
 
@@ -32,7 +43,12 @@ public class Movement : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Pickup"))
         {
-           
+            if(hasMusicStarted == false)
+            {
+                audSet.audioTest2.PlayDelayed((float)0);
+                hasMusicStarted = true;
+            }
+            
             score++;
             test.text = "Score: " + score.ToString();
             Destroy(collider.gameObject);

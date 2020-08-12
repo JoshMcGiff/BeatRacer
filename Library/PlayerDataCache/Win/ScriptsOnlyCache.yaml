@@ -389,7 +389,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 3b0a500a609b3e6d33cd7108da52f2af
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Movement
@@ -587,7 +587,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 18920e22e9351a3b9ac89f8d913c5401
+      Hash: e3e4421b51a046b85b8456e189e11865
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioSettings
