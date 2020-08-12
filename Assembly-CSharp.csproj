@@ -70,6 +70,7 @@
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\MovingCollectible.cs" />
     <Compile Include="Assets\ObjectPool.cs" />
+    <Compile Include="Assets\ObstacleMovement.cs" />
     <Compile Include="Assets\Rotate.cs" />
     <Compile Include="Assets\SpawnObjects.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,15 +16,19 @@ public class SpawnObjects : MonoBehaviour
     bool middle = false;
     bool right = false;
     Text txt;
+    bool timerEnded = true;
 
     Vector3 test1 = new Vector3(-2.5f, 0.0f, 80.0f);
     Vector3 test2 = new Vector3(0f, 0.0f, 80.0f);
     Vector3 test3 = new Vector3(2.5f, 0.0f, 80.0f);
 
+    Vector3 test4 = new Vector3(2.5f, 0.5f, 80.0f);
+
     int i = 0;
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine("Timer");
         txt = GameObject.Find("Canvas/Beats").GetComponent<Text>();
         
 
@@ -33,27 +38,51 @@ public class SpawnObjects : MonoBehaviour
         //beats = amountOfBeats;
         AudioProcessor processor = FindObjectOfType<AudioProcessor>();
         processor.onBeat.AddListener(onOnbeatDetected);
-        InvokeRepeating("spawnObstacle", 0.0f, 10f);
+        InvokeRepeating("spawnObstacle", 0.0f, 3f);
 
     }
     void increment()
     {
         i++;
     }
+
+    public IEnumerator Timer()
+    {
+        timerEnded = false;
+        Debug.Log("Before");
+        yield return new WaitForSeconds(0.25f);
+        Debug.Log("After");
+
+        timerEnded = true;
+    }
+    public bool isTimeUp()
+    {
+        if (timerEnded == true)
+        {
+            return true;
+        }
+        return false;
+    }
     void onOnbeatDetected()
     {
+        if (isTimeUp() == false)
+        {
+            Debug.Log("HERE");
+            return;
+        }
+            
         
             beats++;
         //PlayerPrefs.SetInt("Beats", beats);
         spawnPickup();
         //InvokeRepeating("spawnPickup", 0.0f, 1f);
         txt.text = beats.ToString();
-            Debug.Log("Beat!!!");
-        
+        //   Debug.Log("Beat!!!");
+        StartCoroutine("Timer");
     }
     void spawnObstacle()
     {
-        Instantiate(obstacle, test1, Quaternion.identity);
+        Instantiate(obstacle, test4, Quaternion.identity);
     }
     void spawnLeft()
     {

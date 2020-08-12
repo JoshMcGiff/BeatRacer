@@ -37,5 +37,11 @@ public class Movement : MonoBehaviour
             test.text = "Score: " + score.ToString();
             Destroy(collider.gameObject);
         }
+        if (collider.gameObject.CompareTag("Obstacle"))
+        {
+
+            //Debug.Log("Hit");
+            Destroy(collider.gameObject);
+        }
     }
 }

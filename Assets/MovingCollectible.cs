@@ -9,7 +9,6 @@ public class MovingCollectible : MonoBehaviour
     AudioSettings audioScript;
     bool startFinished = false;
 
-    public GameObject obstacle;
 
      void Start()
     {
@@ -33,13 +32,14 @@ public class MovingCollectible : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(obstacle.transform.position.z < -2.5)
-        {
-            DestroyImmediate(obstacle, true);
-        }
+        ////if(obstacle.transform.position.z < -2.5)
+        //{
+        //   DestroyImmediate(obstacle, true);
+        //}
         //Debug.Log (-10 * speed * Time.deltaTime);
-        transform.Translate(0, 0, -10 * speed * Time.deltaTime);
-        obstacle.transform.Translate(0, 0, -10 * speed * Time.deltaTime);
+        //transform.Translate(0, 0, -10 * speed * Time.deltaTime);
+        Debug.Log (Time.deltaTime);
+        transform.Translate(0, 0, -100 * Time.deltaTime);
     }
 
     

@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - Movement
     - MovingCollectible
     - ObjectPool
+    - ObstacleMovement
     - Rotate
     - SpawnObjects
     Unity.Rider.Editor.dll:
@@ -86,20 +87,24 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12622}
+      Script: {instanceID: 12514}
     - Class: 114
-      Script: {instanceID: 12768}
+      Script: {instanceID: 12624}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12770}
     - Class: 114
-      Script: {instanceID: 12972}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13018}
+      Script: {instanceID: 12974}
     - Class: 114
-      Script: {instanceID: 13022}
+      Script: {instanceID: 13020}
+    - Class: 114
+      Script: {instanceID: 13024}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -336,7 +341,7 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: bda0023a490a5758b6d1906d9eee2d23
+      Hash: 5f77679c15707c2cdc260b6dd31fde15
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnObjects
@@ -448,6 +453,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ObstacleMovement
   - hash:
       serializedVersion: 2
       Hash: 8001a5f7502aab37e42206da015e6914
