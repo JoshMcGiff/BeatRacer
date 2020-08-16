@@ -22,6 +22,7 @@ public class AudioSettings : MonoBehaviour
     public float speedMultipier = 0.0f;
 
     public AudioLowPassFilter lowPassFilter;
+    public AudioReverbFilter reverbFilter;
 
     void Start()
     {
@@ -36,17 +37,22 @@ public class AudioSettings : MonoBehaviour
         audioTest.volume = 0.1f;
 
         lowPassFilter = GetComponent<AudioLowPassFilter>();
+        reverbFilter = GetComponent<AudioReverbFilter>();
 
     }
 
     public void hitAudioEffect()
     {
+        //reverbFilter.enabled = true;
+        lowPassFilter.enabled = true;
         lowPassFilter.cutoffFrequency = 2000.0f;
         lowPassFilter.lowpassResonanceQ = 1.25f;
     }
     
     public void restoreAudioEffects()
     {
+        //reverbFilter.enabled = false;
+        lowPassFilter.enabled = false;
         lowPassFilter.cutoffFrequency = 5007.7f;
         lowPassFilter.lowpassResonanceQ = 1.0f;
     }

@@ -27,7 +27,7 @@ public class MovingCollectible : MonoBehaviour
     {
         if (audioScript.speedMultipier > 0.2f)
         {
-           speed = audioScript.speedMultipier * 28;
+           speed = audioScript.speedMultipier * 12;
         }
         if (transform.position.z < -2.5)
         {
@@ -40,7 +40,7 @@ public class MovingCollectible : MonoBehaviour
         //Debug.Log (-10 * speed * Time.deltaTime);
         //transform.Translate(0, 0, -10 * speed * Time.deltaTime);
 
-        transform.Translate(0, 0, -100 * Time.deltaTime);
+        transform.Translate(0, 0, -20 * speed * Time.deltaTime);
     }
 
     
