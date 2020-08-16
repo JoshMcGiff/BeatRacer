@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class SpawnObjects : MonoBehaviour
 {
-
+    
     public GameObject prefab;
     public GameObject obstacle;
     public float speed = 2.0f;
@@ -17,12 +17,19 @@ public class SpawnObjects : MonoBehaviour
     bool right = false;
     Text txt;
     bool timerEnded = true;
+    AudioSettings audioScript;
+    bool hasFirstPickUpSpawned = false;
+    bool timeToSpawnObstacle = false;
+    float obstacleFrequency = 25.0f;
+    public bool isDead = false;
 
     Vector3 test1 = new Vector3(-2.5f, 0.0f, 80.0f);
     Vector3 test2 = new Vector3(0f, 0.0f, 80.0f);
     Vector3 test3 = new Vector3(2.5f, 0.0f, 80.0f);
 
-    Vector3 test4 = new Vector3(2.5f, 0.5f, 80.0f);
+    Vector3 leftOb = new Vector3(-2.5f, 0.5f, 80.0f);
+    Vector3 middleOb = new Vector3(0.0f, 0.5f, 80.0f);
+    Vector3 rightOb = new Vector3(2.5f, 0.5f, 80.0f);
 
     int i = 0;
     // Start is called before the first frame update
@@ -30,7 +37,8 @@ public class SpawnObjects : MonoBehaviour
     {
         StartCoroutine("Timer");
         txt = GameObject.Find("Canvas/Beats").GetComponent<Text>();
-        
+        GameObject thePlayer = GameObject.Find("Main Camera");
+        audioScript = thePlayer.GetComponent<AudioSettings>();
 
         //301
         //int amountOfBeats = PlayerPrefs.GetInt("Beats");
@@ -38,8 +46,13 @@ public class SpawnObjects : MonoBehaviour
         //beats = amountOfBeats;
         AudioProcessor processor = FindObjectOfType<AudioProcessor>();
         processor.onBeat.AddListener(onOnbeatDetected);
-        InvokeRepeating("spawnObstacle", 0.0f, 3f);
+        InvokeRepeating("test", 10.0f, obstacleFrequency);
 
+    }
+    
+    void test()
+    {
+        timeToSpawnObstacle = true;
     }
     void increment()
     {
@@ -49,10 +62,7 @@ public class SpawnObjects : MonoBehaviour
     public IEnumerator Timer()
     {
         timerEnded = false;
-        Debug.Log("Before");
-        yield return new WaitForSeconds(0.125f);
-        Debug.Log("After");
-
+        yield return new WaitForSeconds(0.25f);
         timerEnded = true;
     }
     public bool isTimeUp()
@@ -67,7 +77,6 @@ public class SpawnObjects : MonoBehaviour
     {
         if (isTimeUp() == false)
         {
-            Debug.Log("HERE");
             return;
         }
             
@@ -82,42 +91,83 @@ public class SpawnObjects : MonoBehaviour
     }
     void spawnObstacle()
     {
-        Instantiate(obstacle, test4, Quaternion.identity);
+        var rand = new System.Random();
+        int temp = rand.Next(3);
+        if(temp == 0)
+        {   
+            Instantiate(obstacle, leftOb, Quaternion.identity);
+        }
+        else if(temp == 1)
+        {
+            Instantiate(obstacle, middleOb, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(obstacle, rightOb, Quaternion.identity);
+        }
     }
     void spawnLeft()
     {
-        Instantiate(prefab, test1, Quaternion.identity);
-        left = true;
-        right = false;
+        Instantiate(prefab, test1, Quaternion.identity);    
     }
     void spawnMiddle()
     {
         Instantiate(prefab, test2, Quaternion.identity);
-        right = false;
-        left = false;
     }
     void spawnRight()
     {
         Instantiate(prefab, test3, Quaternion.identity);
-        right = true;
-        left = false;
     }
     void spawnPickup()
     {
+        if(isDead == true)
+        {
+            return;
+        }
+        if(hasFirstPickUpSpawned == false)
+        {
+            GameObject tempGO = Instantiate(prefab, test1, Quaternion.identity);
+            tempGO.transform.localScale = new Vector3(25, 1, 1.0f);
+            tempGO.transform.localPosition = new Vector3(0, 0, 30);
+            hasFirstPickUpSpawned = true;
+        }
         var rand = new System.Random();
         int temp = rand.Next(3);
-        if (temp == 0 && !right)
+        if (temp == 0)
         {
+            if (timeToSpawnObstacle == true)
+            {
+                //Instantiate(obstacle, leftOb, Quaternion.identity);
+                //Instantiate(obstacle, rightOb, Quaternion.identity);
+                timeToSpawnObstacle = false;
+            }
             spawnRight();
+            Invoke("spawnObstacle", 0.125f);
         }
-        else if(temp == 1 && !left)
+        else if(temp == 1)
         {
+            if (timeToSpawnObstacle == true)
+            {
+                //Instantiate(obstacle, rightOb, Quaternion.identity);
+                //Instantiate(obstacle, leftOb, Quaternion.identity);
+                timeToSpawnObstacle = false;
+            }
             spawnLeft();
-           
+            Invoke("spawnObstacle", 0.125f);
+
         }
         else
         {
+            if (timeToSpawnObstacle == true)
+            {
+                Instantiate(obstacle, leftOb, Quaternion.identity);
+
+                //Instantiate(obstacle, middleOb, Quaternion.identity);
+                timeToSpawnObstacle = false;
+            }
             spawnMiddle();
+            Invoke("spawnObstacle", 0.125f);
+
         }
 
 

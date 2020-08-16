@@ -23,7 +23,7 @@ public class ObstacleMovement : MonoBehaviour
 
         if (audioScript.speedMultipier > 0.2f)
         {
-            speed = audioScript.speedMultipier * 12;
+            speed = audioScript.speedMultipier * 28;
         }
         if(transform.position.z < -2.5)
         {
@@ -31,7 +31,7 @@ public class ObstacleMovement : MonoBehaviour
         }
         
 
-        transform.Translate(0, 0, -10 * speed * Time.deltaTime);
+        transform.Translate(0, 0, -100 * Time.deltaTime);
         
         //rb.MovePosition(vect);
 

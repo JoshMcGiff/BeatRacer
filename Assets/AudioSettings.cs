@@ -17,10 +17,11 @@ public class AudioSettings : MonoBehaviour
 
     private float currentUpdateTime = 0f;
 
-    private float clipLoudness;
+    public float clipLoudness;
     private float[] clipSampleData;
     public float speedMultipier = 0.0f;
 
+    public AudioLowPassFilter lowPassFilter;
 
     void Start()
     {
@@ -34,11 +35,29 @@ public class AudioSettings : MonoBehaviour
         audioTest = GetComponent<AudioSource>();
         audioTest.volume = 0.1f;
 
-        //Invoke("updateVolume", 0.011f);
-        //float tmp = ( 160.0f / (10.0f * 8.0f ));
-        //Debug.Log(Convert.ToInt32(tmp));
-        //audioTest2.PlayDelayed(2);
-        //audioTest2.PlayDelayed((float) 0);
+        lowPassFilter = GetComponent<AudioLowPassFilter>();
+
+    }
+
+    public void hitAudioEffect()
+    {
+        lowPassFilter.cutoffFrequency = 2000.0f;
+        lowPassFilter.lowpassResonanceQ = 1.25f;
+    }
+    
+    public void restoreAudioEffects()
+    {
+        lowPassFilter.cutoffFrequency = 5007.7f;
+        lowPassFilter.lowpassResonanceQ = 1.0f;
+    }
+
+    int transitionDuration = 4;
+    public void restoreAudioEffectsTest()
+    {
+        for (int i = 0; i < transitionDuration + 1; i++)
+        {
+           // (transitionDuration - i) * (1f / transitionDuration);
+        }
     }
     void updateVolume()
     {

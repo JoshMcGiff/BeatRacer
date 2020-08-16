@@ -6,25 +6,20 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     private int score = 0;
+    public int health = 3;
     public static Text test;
+    AudioSettings audioTest2;
+    bool isFirstBeat = true;
+    string restoreAudioEffects;
+    float time;
 
-    public AudioClip firstAudioClip;
-    public AudioClip secondAudioClip;
-
-    AudioSource audioTest;
-    AudioSource audioTest2;
-    AudioSettings audSet;
-    bool hasMusicStarted = false;
-    
     // Start is called before the first frame update
     void Start()
     {
-        GameObject script = GameObject.Find("Main Camera");
-        audSet = script.GetComponent<AudioSettings>();
-        
-        Text txt = GameObject.Find("Canvas/Text").GetComponent<Text>();
+        Text txt = GameObject.Find("Canvas/Score").GetComponent<Text>();
         test = txt;
-
+        GameObject audSettings = GameObject.Find("Main Camera");
+        audioTest2 = audSettings.GetComponent<AudioSettings>();
     }
 
     // Update is called once per frame
@@ -43,21 +38,30 @@ public class Movement : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Pickup"))
         {
-            if(hasMusicStarted == false)
+            if(isFirstBeat == true)
             {
-                audSet.audioTest2.PlayDelayed((float)0);
-                hasMusicStarted = true;
+                audioTest2.audioTest2.PlayDelayed((float)0);
+                isFirstBeat = false;
             }
-            
             score++;
             test.text = "Score: " + score.ToString();
             Destroy(collider.gameObject);
         }
         if (collider.gameObject.CompareTag("Obstacle"))
         {
+            health--;
+            audioTest2.hitAudioEffect();
+            time = Time.time;
+            StartCoroutine("restoreAudio");
 
-            //Debug.Log("Hit");
+            Debug.Log("Hit");
             Destroy(collider.gameObject);
         }
+    }
+    public IEnumerator restoreAudio()
+    {
+        yield return new WaitForSeconds(1.0f);
+       
+        audioTest2.restoreAudioEffects();
     }
 }
