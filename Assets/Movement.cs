@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     private int score = 0;
-    public int health = 3;
+    public int health = 100;
     public static Text test;
     AudioSettings audioTest2;
     bool isFirstBeat = true;
