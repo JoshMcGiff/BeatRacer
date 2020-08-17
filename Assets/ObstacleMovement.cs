@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
-    public float speed = 8.0f;
+    private float speed;
     AudioSettings audioScript;
     Rigidbody rb;
+    Manager manager;
     Vector3 vect;
     // Start is called before the first frame update
     void Start()
     {
         GameObject thePlayer = GameObject.Find("Main Camera");
         audioScript = thePlayer.GetComponent<AudioSettings>();
+        GameObject managerObject = GameObject.Find("Manager");
+        manager = managerObject.GetComponent<Manager>();
+        speed = manager.speed;
         rb = GetComponent<Rigidbody>();
         vect.z =  Time.deltaTime;
     }

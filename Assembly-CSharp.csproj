@@ -67,6 +67,7 @@
     <Compile Include="Assets\AudioProcessor.cs" />
     <Compile Include="Assets\AudioSettings.cs" />
     <Compile Include="Assets\GetBeats.cs" />
+    <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\MovingCollectible.cs" />
     <Compile Include="Assets\ObjectPool.cs" />

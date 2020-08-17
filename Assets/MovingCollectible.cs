@@ -8,15 +8,19 @@ public class MovingCollectible : MonoBehaviour
     public float speed = 8.0f;
     AudioSettings audioScript;
     bool startFinished = false;
+    Manager manager;
 
 
 
-     void Start()
+    void Start()
     {
 
         GameObject thePlayer = GameObject.Find("Main Camera");
         audioScript = thePlayer.GetComponent<AudioSettings>();
-        
+        GameObject managerObject = GameObject.Find("Manager");
+        manager = managerObject.GetComponent<Manager>();
+        speed = manager.speed;
+
 
     }
 

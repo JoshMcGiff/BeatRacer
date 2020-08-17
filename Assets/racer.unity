@@ -1109,6 +1109,7 @@ GameObject:
   - component: {fileID: 1667539617}
   - component: {fileID: 1667539619}
   - component: {fileID: 1667539620}
+  - component: {fileID: 1667539621}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1175,6 +1176,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 0
+--- !u!114 &1667539621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667539616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52c00cf0fb3db24083b0f81ec79d1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
 --- !u!1 &1728873534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1458,7 @@ PrefabInstance:
     - target: {fileID: 4201478334168668125, guid: 71e41498436dc07478492d4566c73ad8,
         type: 3}
       propertyPath: m_Name
-      value: Cube (1)
+      value: Collectible
       objectReference: {fileID: 0}
     - target: {fileID: 4201478334168668125, guid: 71e41498436dc07478492d4566c73ad8,
         type: 3}
