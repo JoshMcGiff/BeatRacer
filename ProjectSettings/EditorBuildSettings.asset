@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Main Menu.unity
+    guid: c552966e8df83214ba9d02806a1480db
+  - enabled: 1
     path: Assets/racer.unity
     guid: a1df491c07c07534e968b829d7846333
   m_configObjects: {}
