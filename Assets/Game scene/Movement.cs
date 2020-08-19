@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     private int score = 0;
-    public int health = 100;
+   public int health = 3;
     public static Text test;
     AudioSettings audioTest2;
     bool isFirstBeat = true;
@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     UIController uiController;
     GameObject manager;
     public bool isPaused = false;
-
+    
     // Start is called before the first frame update
     void Start()
     {

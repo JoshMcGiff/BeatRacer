@@ -650,7 +650,12 @@
       <HintPath>C:/Users/jbmcg/MusicRacer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SimpleFileBrowser.Runtime.csproj">
+      <Project>{5360EA18-8ABA-D06D-340D-B9E4808E91AB}</Project>
+      <Name>SimpleFileBrowser.Runtime</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

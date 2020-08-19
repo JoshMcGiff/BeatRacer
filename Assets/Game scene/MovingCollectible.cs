@@ -34,15 +34,15 @@ public class MovingCollectible : MonoBehaviour
     {
         if (audioScript.speedMultipier > 3.0f)
         {
-            speed = 26; //make these shared across both movement scripts
+            speed = 13; //make these shared across both movement scripts
         }
         if (audioScript.speedMultipier > 1.5f)
         {
-            speed = 20; //make these shared across both movement scripts
+            speed = 10; //make these shared across both movement scripts
         }
         if (audioScript.speedMultipier > 0.5f)
         {
-            speed = 14; //make these shared across both movement scripts
+            speed = 7; //make these shared across both movement scripts
         }
         if (transform.position.z < -2.5)
         {

@@ -949,7 +949,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4553430140310668355, guid: 36f1372e7e525a44eb2aa42f64f8537e,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 628d7c4cb1bccaf4bb9f01dbd93c8bd0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3e1f6857352b5984e8ff1c12b1c184ae, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.191
   m_Pitch: 1
@@ -1066,7 +1066,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 628d7c4cb1bccaf4bb9f01dbd93c8bd0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3e1f6857352b5984e8ff1c12b1c184ae, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.107
   m_Pitch: 1
@@ -1935,11 +1935,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
-    - target: {fileID: 8183121911646574644, guid: 129a5516e04f9c7498255d90412c0484,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8183121911646574648, guid: 129a5516e04f9c7498255d90412c0484,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1994,11 +1989,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183121911646574651, guid: 129a5516e04f9c7498255d90412c0484,
-        type: 3}
-      propertyPath: health
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129a5516e04f9c7498255d90412c0484, type: 3}
