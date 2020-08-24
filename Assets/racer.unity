@@ -949,7 +949,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4553430140310668355, guid: 36f1372e7e525a44eb2aa42f64f8537e,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3e1f6857352b5984e8ff1c12b1c184ae, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fecd6d1eb4431394fb84e4be5b02eb54, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.191
   m_Pitch: 1
@@ -1047,8 +1047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edee1cfe88ab574295967ed9b1de0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAudioClip: {fileID: 8300000, guid: 7b089c193fcb4424695a0c4bef5cf9b0, type: 3}
-  secondAudioClip: {fileID: 8300000, guid: 7b089c193fcb4424695a0c4bef5cf9b0, type: 3}
+  firstAudioClip: {fileID: 0}
+  secondAudioClip: {fileID: 0}
   audioTest2: {fileID: 0}
   updateStep: 0.1
   sampleDataLength: 1024
@@ -1066,7 +1066,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e1f6857352b5984e8ff1c12b1c184ae, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fecd6d1eb4431394fb84e4be5b02eb54, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.107
   m_Pitch: 1

@@ -67,13 +67,7 @@ public class AudioSettings : MonoBehaviour
     }
 
     int transitionDuration = 4;
-    public void restoreAudioEffectsTest()
-    {
-        for (int i = 0; i < transitionDuration + 1; i++)
-        {
-           // (transitionDuration - i) * (1f / transitionDuration);
-        }
-    }
+   
     void updateVolume()
     {
         audioTest.volume = 0.0f;

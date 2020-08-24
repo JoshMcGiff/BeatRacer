@@ -12,6 +12,12 @@ ScriptsOnlyBuild:
     - Rotate
     - SpawnObjects
     - UIController
+    SimpleFileBrowser.Runtime.dll:
+    - SimpleFileBrowser.FileBrowser
+    - SimpleFileBrowser.FileBrowserItem
+    - SimpleFileBrowser.FileBrowserMovement
+    - SimpleFileBrowser.FileBrowserQuickLink
+    - SimpleFileBrowser.RecycledListView
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -24,13 +30,21 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.BaseInput
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
+    - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   sceneClasses:
     Assets/Main Menu.unity:
     - Class: 1
@@ -56,29 +70,55 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11178}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11338}
+      Script: {instanceID: 11162}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11184}
     - Class: 114
-      Script: {instanceID: 11762}
+      Script: {instanceID: 11348}
     - Class: 114
-      Script: {instanceID: 11788}
+      Script: {instanceID: 11386}
     - Class: 114
-      Script: {instanceID: 11926}
+      Script: {instanceID: 11462}
     - Class: 114
-      Script: {instanceID: 12146}
+      Script: {instanceID: 11584}
     - Class: 114
-      Script: {instanceID: 12366}
+      Script: {instanceID: 11718}
     - Class: 114
-      Script: {instanceID: 12382}
+      Script: {instanceID: 11752}
     - Class: 114
-      Script: {instanceID: 12628}
+      Script: {instanceID: 11776}
     - Class: 114
-      Script: {instanceID: 12774}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 12978}
+      Script: {instanceID: 11944}
+    - Class: 114
+      Script: {instanceID: 11974}
+    - Class: 114
+      Script: {instanceID: 12272}
+    - Class: 114
+      Script: {instanceID: 12358}
+    - Class: 114
+      Script: {instanceID: 12390}
+    - Class: 114
+      Script: {instanceID: 12406}
+    - Class: 114
+      Script: {instanceID: 12552}
+    - Class: 114
+      Script: {instanceID: 12654}
+    - Class: 114
+      Script: {instanceID: 12800}
+    - Class: 114
+      Script: {instanceID: 12936}
+    - Class: 114
+      Script: {instanceID: 12966}
+    - Class: 114
+      Script: {instanceID: 12992}
+    - Class: 114
+      Script: {instanceID: 13004}
+    - Class: 114
+      Script: {instanceID: 13018}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -131,39 +171,39 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11168}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11178}
+      Script: {instanceID: 11162}
     - Class: 114
-      Script: {instanceID: 11234}
+      Script: {instanceID: 11174}
     - Class: 114
-      Script: {instanceID: 11338}
+      Script: {instanceID: 11184}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11240}
     - Class: 114
-      Script: {instanceID: 11582}
+      Script: {instanceID: 11386}
     - Class: 114
-      Script: {instanceID: 11762}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11936}
+      Script: {instanceID: 11776}
     - Class: 114
-      Script: {instanceID: 12146}
+      Script: {instanceID: 11954}
     - Class: 114
-      Script: {instanceID: 12236}
+      Script: {instanceID: 12258}
     - Class: 114
-      Script: {instanceID: 12518}
+      Script: {instanceID: 12542}
     - Class: 114
-      Script: {instanceID: 12628}
+      Script: {instanceID: 12654}
     - Class: 114
-      Script: {instanceID: 12840}
+      Script: {instanceID: 12866}
     - Class: 114
-      Script: {instanceID: 12978}
+      Script: {instanceID: 13004}
     - Class: 114
-      Script: {instanceID: 13024}
+      Script: {instanceID: 13050}
     - Class: 114
-      Script: {instanceID: 13026}
+      Script: {instanceID: 13052}
     - Class: 114
-      Script: {instanceID: 13030}
+      Script: {instanceID: 13056}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -191,6 +231,18 @@ ScriptsOnlyBuild:
     - Class: 245
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: aeb62f729c52c814dec86c47dcac1471
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: 5f1752ed2092162f016c19510c28a8b9
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: afc5b93a7b192de2dcb3832fe35a5c7e
@@ -259,12 +311,6 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: aeb62f729c52c814dec86c47dcac1471
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
-  - hash:
-      serializedVersion: 2
       Hash: 499fd23433e68e265d153aa6b95d0047
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -305,6 +351,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: e46fb90fe982b931d02425fdac83d261
+    assemblyName: SimpleFileBrowser.Runtime.dll
+    namespaceName: SimpleFileBrowser
+    className: FileBrowserItem
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -379,6 +431,18 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: e46fb90fe982b931d02425fdac83d261
+    assemblyName: SimpleFileBrowser.Runtime.dll
+    namespaceName: SimpleFileBrowser
+    className: FileBrowserQuickLink
+  - hash:
+      serializedVersion: 2
+      Hash: d9f72468a83361c2e15ed68ac6fcc36b
+    assemblyName: SimpleFileBrowser.Runtime.dll
+    namespaceName: SimpleFileBrowser
+    className: RecycledListView
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -409,7 +473,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: f81de82aee6fa34726a0c01c96b33428
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Controller
@@ -457,16 +521,16 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 5f1752ed2092162f016c19510c28a8b9
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Button
-  - hash:
-      serializedVersion: 2
       Hash: f84d945e5e1ca985698660fc26e9657f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: SimpleFileBrowser.Runtime.dll
+    namespaceName: SimpleFileBrowser
+    className: ListItem
   - hash:
       serializedVersion: 2
       Hash: 02143e267c2e07b55eb6e1d9db27f2bc
@@ -479,6 +543,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 029c97d0c776a306d131505738b12c20
+    assemblyName: SimpleFileBrowser.Runtime.dll
+    namespaceName: SimpleFileBrowser
+    className: FileBrowserMovement
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -539,6 +609,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ObstacleMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 8bca93c346332209f8c6ad0dcf827a15
+    assemblyName: SimpleFileBrowser.Runtime.dll
+    namespaceName: SimpleFileBrowser
+    className: FileBrowser
   - hash:
       serializedVersion: 2
       Hash: 8001a5f7502aab37e42206da015e6914
@@ -699,4 +775,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Main Menu.unity
   - Assets/racer.unity
-  playerPath: C:/Users/jbmcg/Downloads/MusicRacer.exe
+  playerPath: C:/Users/jbmcg/Desktop/Tick Tock/MusicRacer.exe
