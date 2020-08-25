@@ -66,6 +66,7 @@ public class Movement : MonoBehaviour
                 audioTest2.audioTest2.PlayDelayed((float)0);
                 isFirstBeat = false;
             }
+            Debug.Log(SongName.songName);
             score++;
             test.text = "Score: " + score.ToString();
             Destroy(collider.gameObject);

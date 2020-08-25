@@ -6,8 +6,9 @@ using UnityEngine;
 public class AudioSettings : MonoBehaviour
 {
     // Start is called before the first frame update
-    public AudioClip firstAudioClip;
-    public AudioClip secondAudioClip;
+    public GameObject firstAudioClip;
+    public GameObject secondAudioClip;
+    public AudioClip test;
 
     AudioSource audioTest;
     public AudioSource audioTest2;
@@ -35,7 +36,15 @@ public class AudioSettings : MonoBehaviour
 
         audioTest = GetComponent<AudioSource>();
         audioTest.volume = 0.1f;
-
+        Debug.Log("Assets/Game scene/Songs/" + SongName.songName);
+        firstAudioClip = (GameObject) Resources.Load("Assets/ticktock.mp3");
+        secondAudioClip = (GameObject) Resources.Load("Assets/ticktock.mp3");
+        audioTest.clip = firstAudioClip.GetComponent<AudioClip>();
+        audioTest2.clip = secondAudioClip.GetComponent<AudioClip>();
+        //firstAudioClip =  (AudioClip) Resources.Load("Assets/Game scene/Songs/" + SongName.songName);
+        // secondAudioClip = (AudioClip)Resources.Load("Assets/Game scene/Songs/" + SongName.songName);
+        //audioTest.clip = test;
+        //audioTest2.clip = test;
         lowPassFilter = GetComponent<AudioLowPassFilter>();
         reverbFilter = GetComponent<AudioReverbFilter>();
 

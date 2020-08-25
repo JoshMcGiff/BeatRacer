@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour
     GameObject quitButtonObject;
     GameObject testButtonObject;
     public GameObject songNamePrefab;
-    GameObject[] songButtonObjects;
+    List<GameObject> songButtonObjects;
 
     Button playButton;
     Button quitButton;
@@ -37,6 +37,9 @@ public class Controller : MonoBehaviour
         testButtonObject = canvas.transform.Find("TestButton").gameObject;
         testButton = testButtonObject.GetComponent<Button>();
         testButton.onClick.AddListener(testOnClick);
+
+
+        
     }
     void playOnClick()
     {
@@ -54,51 +57,53 @@ public class Controller : MonoBehaviour
         showFileExplorer();
     }
 
-    void showFileExplorer()
+    List<GameObject> gameobjects;
+    void showFileExplorerV2()
     {
         root = new DirectoryInfo("Assets/Game scene/Songs");
         FileInfo[] infos = root.GetFiles();
         namesOfSongs = new string[infos.Length];
-        int tempInt = 1;
-        int j = 0;
-        int x = -250;
-        for (int i = 0; i < infos.Length; i++)
+        for(int i = 0; i < infos.Length; i++)
         {
-            if (infos[i].Name.EndsWith(".meta"))
-            {
-
-            }
-            else
-            {
-                Debug.Log(infos[i]);
-                songButtonObjects[j] = songNamePrefab;
-                songButtonObjects[j].transform.SetParent(canvas.transform);
-                songButtonObjects[j].SetActive(true);
-                if (-50 * tempInt < -250)
-                {
-                    tempInt = 1;
-                    x += 250;
-                    songButtonObjects[j].transform.localPosition = new Vector3(x, 50 * tempInt, 0);
-                }
-                else
-                {
-                    songButtonObjects[j].transform.localPosition = new Vector3(x, 50 * tempInt, 0);
-                }
-
-                songButtonObjects[j].GetComponentInChildren<Text>().text = infos[j].Name;
-                tempInt++;
-                songButtonObjects[j].GetComponent<Button>().onClick.AddListener(loadButtonLevel);
-                j++;
-            }
+            Debug.Log(infos[i].ToString());
+            GameObject temp = Instantiate(songNamePrefab);
+            temp.transform.SetParent(canvas.transform);
+            temp.SetActive(true);
+            temp.GetComponentInChildren<Text>().text = infos[i].Name;
+            temp.name = "songName" + i;
+            gameobjects[i] = GameObject.Find("songName" + i);
+        }
+        for (int j = 0; j < infos.Length; j++)
+        {
+            Debug.Log("gameobjects[j].GetComponentInChildren<Text>().text");
         }
     }
-
-    void loadButtonLevel()
+    GameObject temp;
+    void showFileExplorer()
     {
-        Debug.Log(gameObject.GetComponent<Text>().text);
-        Scene sceneToLoad = SceneManager.GetSceneByName("racer");
-        SceneManager.LoadScene(sceneToLoad.name, LoadSceneMode.Additive);
-        SceneManager.MoveGameObjectToScene(gameObject, sceneToLoad);
+        root = new DirectoryInfo("Assets/Game scene/Songs");
+        FileInfo[] infos = root.GetFiles();
+
+        temp.name = "TEST";
+        temp.transform.SetParent(canvas.transform);
+        temp.SetActive(true);
+        temp.transform.localPosition = new Vector3(0, 0, 0);
+        temp.GetComponentInChildren<Text>().text = infos[0].Name;
+        temp.GetComponent<Button>().onClick.AddListener(() => { loadButtonLevel(temp); });
+        //DontDestroyOnLoad(temp);
+        SongName.songName = infos[0].Name;
+
+
+    }
+
+    void loadButtonLevel(GameObject gameObject)
+    {
+        gameObject.name = "TEST";
+        //DontDestroyOnLoad(gameObject);
+        Scene sceneToLoad = SceneManager.GetSceneByBuildIndex(1);
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+        //SceneManager.MoveGameObjectToScene(gameObject, sceneToLoad);
+    
     }
     void hideMainMenu()
     {
@@ -111,5 +116,10 @@ public class Controller : MonoBehaviour
     void Update()
     {
         
+    }
+    private void Awake()
+    {
+        temp = Instantiate(songNamePrefab);
+        DontDestroyOnLoad(temp);
     }
 }

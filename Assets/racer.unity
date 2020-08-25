@@ -1047,8 +1047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edee1cfe88ab574295967ed9b1de0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAudioClip: {fileID: 0}
-  secondAudioClip: {fileID: 0}
+  firstAudioClip: {fileID: 8300000, guid: fecd6d1eb4431394fb84e4be5b02eb54, type: 3}
+  secondAudioClip: {fileID: 8300000, guid: fecd6d1eb4431394fb84e4be5b02eb54, type: 3}
   audioTest2: {fileID: 0}
   updateStep: 0.1
   sampleDataLength: 1024
