@@ -25,6 +25,7 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         canvas = GameObject.Find("Canvas");
         playButtonObject = canvas.transform.Find("PlayButton").gameObject;
         playButton = playButtonObject.GetComponent<Button>();
@@ -81,7 +82,7 @@ public class Controller : MonoBehaviour
     GameObject temp;
     void showFileExplorer()
     {
-        root = new DirectoryInfo("Assets/Game scene/Songs");
+        root = new DirectoryInfo("Assets/Resources");
         FileInfo[] infos = root.GetFiles();
 
         temp.name = "TEST";
@@ -120,6 +121,6 @@ public class Controller : MonoBehaviour
     private void Awake()
     {
         temp = Instantiate(songNamePrefab);
-        DontDestroyOnLoad(temp);
+        //DontDestroyOnLoad(temp);
     }
 }

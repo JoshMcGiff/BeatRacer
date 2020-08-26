@@ -6,8 +6,8 @@ using UnityEngine;
 public class AudioSettings : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject firstAudioClip;
-    public GameObject secondAudioClip;
+    public AudioClip firstAudioClip;
+    public AudioClip secondAudioClip;
     public AudioClip test;
 
     AudioSource audioTest;
@@ -24,8 +24,7 @@ public class AudioSettings : MonoBehaviour
 
     public AudioLowPassFilter lowPassFilter;
     public AudioReverbFilter reverbFilter;
-
-    void Start()
+    private void Awake()
     {
         clipSampleData = new float[sampleDataLength];
 
@@ -37,16 +36,19 @@ public class AudioSettings : MonoBehaviour
         audioTest = GetComponent<AudioSource>();
         audioTest.volume = 0.1f;
         Debug.Log("Assets/Game scene/Songs/" + SongName.songName);
-        firstAudioClip = (GameObject) Resources.Load("Assets/ticktock.mp3");
-        secondAudioClip = (GameObject) Resources.Load("Assets/ticktock.mp3");
-        audioTest.clip = firstAudioClip.GetComponent<AudioClip>();
-        audioTest2.clip = secondAudioClip.GetComponent<AudioClip>();
+        //firstAudioClip = Resources.Load<AudioClip>("ticktock.mp3");
+        //secondAudioClip = Resources.Load<AudioClip>("ticktock.mp3");
         //firstAudioClip =  (AudioClip) Resources.Load("Assets/Game scene/Songs/" + SongName.songName);
         // secondAudioClip = (AudioClip)Resources.Load("Assets/Game scene/Songs/" + SongName.songName);
-        //audioTest.clip = test;
-        //audioTest2.clip = test;
+        //Debug.Log(((AudioClip)Resources.Load("ticktock")).ToString());
+        audioTest.clip = Resources.Load(SongName.songName.Substring(0, SongName.songName.Length - 4)) as AudioClip;
+        audioTest2.clip = Resources.Load(SongName.songName.Substring(0,SongName.songName.Length -4)) as AudioClip;
         lowPassFilter = GetComponent<AudioLowPassFilter>();
         reverbFilter = GetComponent<AudioReverbFilter>();
+    }
+    void Start()
+    {
+        
 
     }
 

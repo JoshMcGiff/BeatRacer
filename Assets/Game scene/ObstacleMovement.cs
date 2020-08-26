@@ -25,7 +25,7 @@ public class ObstacleMovement : MonoBehaviour
 
     public void moveObstaclePickup()
     {
-        Debug.Log(audioScript.speedMultipier);
+        //Debug.Log(audioScript.speedMultipier);
         if (audioScript.speedMultipier > 3.0f)
         {
             speed = 13; //make these shared across both movement scripts

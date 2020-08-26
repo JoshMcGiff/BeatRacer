@@ -31,11 +31,19 @@ public class SpawnObjects : MonoBehaviour
     Vector3 middleOb = new Vector3(0.0f, 0.5f, 80.0f);
     Vector3 rightOb = new Vector3(2.5f, 0.5f, 80.0f);
 
+    public GameObject triangle;
+    public GameObject cube;
+    public GameObject sphere;
+    public GameObject diamond;
+    bool shapeTimerEnded = true;
+
     int i = 0;
     // Start is called before the first frame update
     void Start()
     {
+        
         StartCoroutine("Timer");
+        StartCoroutine("shapeTimer");
         txt = GameObject.Find("Canvas/Beats").GetComponent<Text>();
         GameObject thePlayer = GameObject.Find("Main Camera");
         audioScript = thePlayer.GetComponent<AudioSettings>();
@@ -50,15 +58,22 @@ public class SpawnObjects : MonoBehaviour
 
     }
     
-    void test()
+   void spawnShapes()
     {
-        timeToSpawnObstacle = true;
-    }
-    void increment()
-    {
-        i++;
-    }
+        Instantiate(cube, new Vector3(0,0, 50), Quaternion.identity);
+        Instantiate(triangle, new Vector3(0, 0, 50), Quaternion.identity);
+        Instantiate(diamond, new Vector3(0, 0, 50), Quaternion.identity);
+        Instantiate(sphere, new Vector3(0, 0, 50), Quaternion.identity);
 
+    }
+    public IEnumerator shapeTimer()
+    {
+        spawnShapes();
+        yield return new WaitForSeconds(10.0f);
+        spawnShapes();
+        //StartCoroutine("shapeTimer"); // DO INVOKEREPEATING INSTEAD
+
+    }
     public IEnumerator Timer()
     {
         timerEnded = false;
