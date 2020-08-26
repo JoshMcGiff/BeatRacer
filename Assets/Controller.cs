@@ -22,6 +22,8 @@ public class Controller : MonoBehaviour
     DirectoryInfo root;
     string[] namesOfSongs;
 
+    Text test;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,6 @@ public class Controller : MonoBehaviour
         testButtonObject = canvas.transform.Find("TestButton").gameObject;
         testButton = testButtonObject.GetComponent<Button>();
         testButton.onClick.AddListener(testOnClick);
-
 
         
     }

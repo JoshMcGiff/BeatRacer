@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ColourChange.cs" />
     <Compile Include="Assets\Controller.cs" />
     <Compile Include="Assets\Game scene\AudioDelay.cs" />
     <Compile Include="Assets\Game scene\AudioProcessor.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Game scene\Rotate.cs" />
     <Compile Include="Assets\Game scene\RotateMenuObjects.cs" />
     <Compile Include="Assets\Game scene\RotateMenuTriangle.cs" />
+    <Compile Include="Assets\Game scene\RotateRays.cs" />
     <Compile Include="Assets\Game scene\SpawnObjects.cs" />
     <Compile Include="Assets\Game scene\UIController.cs" />
     <Compile Include="Assets\MovingShapes.cs" />

@@ -43,7 +43,7 @@ public class SpawnObjects : MonoBehaviour
     {
         
         StartCoroutine("Timer");
-        StartCoroutine("shapeTimer");
+        InvokeRepeating("spawnShapes", 0.0f, 2.0f);
         txt = GameObject.Find("Canvas/Beats").GetComponent<Text>();
         GameObject thePlayer = GameObject.Find("Main Camera");
         audioScript = thePlayer.GetComponent<AudioSettings>();
@@ -60,10 +60,37 @@ public class SpawnObjects : MonoBehaviour
     
    void spawnShapes()
     {
-        Instantiate(cube, new Vector3(0,0, 50), Quaternion.identity);
-        Instantiate(triangle, new Vector3(0, 0, 50), Quaternion.identity);
-        Instantiate(diamond, new Vector3(0, 0, 50), Quaternion.identity);
-        Instantiate(sphere, new Vector3(0, 0, 50), Quaternion.identity);
+        var rand = new System.Random();
+        int temp = rand.Next(4);
+        Debug.Log("rand : " + temp);
+
+        Vector3 leftSide = new Vector3(-10f, 0f, 72.1f);
+        Vector3 rightSide = new Vector3(10f, 0f, 72.1f);
+        if( temp == 0)
+        {
+            Instantiate(cube, leftSide, Quaternion.identity);
+            Instantiate(cube, rightSide, Quaternion.identity);
+
+        }
+        else if (temp == 1)
+        {
+            Instantiate(triangle, leftSide, Quaternion.identity);
+            Instantiate(triangle, rightSide, Quaternion.identity);
+
+        }
+        else if (temp == 2)
+        {
+            Instantiate(diamond, leftSide, Quaternion.identity);
+            Instantiate(diamond, rightSide, Quaternion.identity);
+
+        }
+        else
+        {
+            Instantiate(sphere, leftSide, Quaternion.identity);
+            Instantiate(sphere, rightSide, Quaternion.identity);
+
+        }
+        
 
     }
     public IEnumerator shapeTimer()

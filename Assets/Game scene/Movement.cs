@@ -15,10 +15,12 @@ public class Movement : MonoBehaviour
     UIController uiController;
     GameObject manager;
     public bool isPaused = false;
+    public Material changingMaterial;
     
     // Start is called before the first frame update
     void Start()
     {
+        
         Text txt = GameObject.Find("Canvas/Score").GetComponent<Text>();
         test = txt;
         GameObject audSettings = GameObject.Find("Main Camera");
