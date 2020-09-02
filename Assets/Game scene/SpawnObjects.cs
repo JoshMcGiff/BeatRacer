@@ -15,7 +15,6 @@ public class SpawnObjects : MonoBehaviour
     bool left = false;
     bool middle = false;
     bool right = false;
-    Text txt;
     bool timerEnded = true;
     AudioSettings audioScript;
     bool hasFirstPickUpSpawned = false;
@@ -44,14 +43,8 @@ public class SpawnObjects : MonoBehaviour
         
         StartCoroutine("Timer");
         InvokeRepeating("spawnShapes", 0.0f, 2.0f);
-        txt = GameObject.Find("Canvas/Beats").GetComponent<Text>();
         GameObject thePlayer = GameObject.Find("Main Camera");
         audioScript = thePlayer.GetComponent<AudioSettings>();
-
-        //301
-        //int amountOfBeats = PlayerPrefs.GetInt("Beats");
-        //Debug.Log(amountOfBeats);
-        //beats = amountOfBeats;
         AudioProcessor processor = FindObjectOfType<AudioProcessor>();
         processor.onBeat.AddListener(onOnbeatDetected);
         InvokeRepeating("test", 10.0f, obstacleFrequency);
@@ -127,7 +120,6 @@ public class SpawnObjects : MonoBehaviour
         //PlayerPrefs.SetInt("Beats", beats);
         spawnPickup();
         //InvokeRepeating("spawnPickup", 0.0f, 1f);
-        txt.text = beats.ToString();
         //   Debug.Log("Beat!!!");
         StartCoroutine("Timer");
     }
@@ -169,6 +161,7 @@ public class SpawnObjects : MonoBehaviour
         if(hasFirstPickUpSpawned == false)
         {
             GameObject tempGO = Instantiate(prefab, test1, Quaternion.identity);
+            tempGO.GetComponent<MeshRenderer>().enabled = false;
             tempGO.transform.localScale = new Vector3(25, 1, 1.0f);
             tempGO.transform.localPosition = new Vector3(0, 0, 30);
             hasFirstPickUpSpawned = true;

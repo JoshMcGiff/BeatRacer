@@ -5,33 +5,49 @@ using UnityEngine;
 
 public class ColourChange : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Color[] colors = {
+        new Color(0.29f, 0.0f, 0.51f, 1.0f),//indigo
+        new Color(0.56f, 0.0f, 1.0f, 1.0f),//violet
+        new Color(1.0f, 0.0f, 0.0f, 1.0f),//red
+        new Color(1.0f, 0.5f, 0.0f, 1.0f),//orange
+        new Color(1.0f, 1.0f, 0.0f, 1.0f),//yellow
+        new Color(0.0f, 1.0f, 0.0f, 1.0f),//green
+        new Color(0.0f, 0.0f, 1.0f, 1.0f)//blue
+        };
     public Material changingMaterial;
-    public float intensity = 2.2f;
-    List<GameObject> accentObjects;
-    Color lerpedColor = Color.white;
-    float H, S, V;
+    public int currentIndex = 0;
+    private int nextIndex;
+
+    private float changeColourTime = 3.0f;
+
+    private float lastChange = 0.0f;
+    private float timer = 0.0f;
+
     void Start()
     {
-        
-        
-        
+        //gameObject.GetComponent<Renderer>().material.color = new Color(1.0f, 0.5f, 1.0f);
+        if (colors == null || colors.Length < 2)
+            Debug.Log("Need to setup colors array in inspector");
+
+        nextIndex = (currentIndex + 1) % colors.Length;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        lerpedColor = Color.LerpUnclamped(Color.red, Color.magenta, Mathf.PingPong(Time.time, 1));
-        //Mathf.Lerp(0, 1, Mathf.PingPong(Time.time, 1));
-        accentObjects = GameObject.FindGameObjectsWithTag("Accent").ToList();
-        float factor = Mathf.Pow(2, intensity);
-        for (int i = 0; i < accentObjects.Count; i++)
-        {
-            changingMaterial = accentObjects[i].GetComponent<MeshRenderer>().material;
-            changingMaterial.color = lerpedColor;
-            Color.RGBToHSV(lerpedColor, out H, out S, out V);
-            changingMaterial.SetColor("_EmissionColor", new Color(lerpedColor.r * factor, lerpedColor.g * factor, lerpedColor.b * factor));
-        }
 
+        timer += Time.deltaTime;
+
+        if (timer > changeColourTime)
+        {
+            currentIndex = (currentIndex + 1) % colors.Length;
+            nextIndex = (currentIndex + 1) % colors.Length;
+            timer = 0.0f;
+
+        }
+        Renderer temp = gameObject.GetComponent<Renderer>();
+        temp.material.color = Color.Lerp(colors[currentIndex], colors[nextIndex], timer / changeColourTime);
+        temp.material.EnableKeyword("_EMISSION");
+        temp.material.SetColor("_EmissionColor", temp.material.color * 1.5f);
     }
 }
+
